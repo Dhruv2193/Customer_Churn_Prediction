@@ -16,6 +16,10 @@ encoder = joblib.load("encoder.pkl")  # {"geography": LabelEncoder, "gender": La
 # ------------------------------
 app = FastAPI()
 
+@app.get("/")
+def home():
+    return {"message": "FastAPI is working 🚀"}
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # or restrict to ["http://localhost:3000"]
